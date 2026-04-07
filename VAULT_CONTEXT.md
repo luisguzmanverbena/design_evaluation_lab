@@ -89,11 +89,3 @@ Point-in-time backup of the entire Vault state. Critical for disaster recovery. 
 | **mTLS** | Mutual TLS — both client and server authenticate via certificates. |
 | **KMS** | Key Management Service — cloud provider service for managing encryption keys. |
 | **Shamir's Secret Sharing** | Algorithm that splits a key into N shares, requiring K of N to reconstruct. Used for manual unseal. |
-
-## What This Means for Evaluation
-
-- **Seal status must be unmissable.** If you can't tell whether the cluster is sealed within 1 second of landing on the page, that's a Critical finding.
-- **Machine users dominate.** Most Vault interactions are automated. The UI should support and accelerate automation setup, not assume manual operation.
-- **Temporal context is essential.** Secrets expire. Tokens expire. Leases expire. Certificates expire. If the UI shows something without its TTL or expiration, it's missing critical information.
-- **Permissions shape what's visible.** Not every user can see or do everything. The UI should degrade gracefully based on policy, not show errors after action attempts.
-- **Security posture is always relevant.** Every screen is a potential audit surface. Ask: "Can a Governance & Compliance Owner get what they need from this view?"
